@@ -7,7 +7,6 @@ Bu, Java Final projesi için çeşitli Java programlama kavramlarını gösteren
 Envanter Yönetim Sistemi, kullanıcıların ürün ve kategorileri yönetmelerine olanak tanıyan bir Spring Boot uygulamasıdır. İçeriği:
 
 - CRUD işlemleri için RESTful API uç noktaları
-- H2 (geliştirme) ve MySQL (üretim) ile veritabanı entegrasyonu
 - Çeşitli Java programlama kavramlarının gösterimi
 
 ## Kullanılan Teknolojiler
@@ -97,9 +96,8 @@ Envanter Yönetim Sistemi, kullanıcıların ürün ve kategorileri yönetmeleri
    ```
 
 4. Uygulamaya erişin:
-   - API: http://localhost:8080/api
-   - H2 Konsolu: http://localhost:8080/h2-console
-   - Swagger UI: http://localhost:8080/swagger-ui.html
+
+   - Swagger UI: [http://localhost:8080/swagger-ui.html](https://ilerijava-production.up.railway.app/swagger-ui/index.html#/)
 
 ### Docker ile Çalıştırma
 
@@ -109,6 +107,13 @@ Envanter Yönetim Sistemi, kullanıcıların ürün ve kategorileri yönetmeleri
    ```
 
 2. Uygulamaya http://localhost:8080 adresinden erişin
+
+Postman ile örnek test görüntüsü categories alanına ekleme yapılmıştır
+![Ekran görüntüsü 2025-06-07 173441](https://github.com/user-attachments/assets/32b9667c-db8a-4252-960b-cee29fc8bf09)
+
+Eklediğimiz ürün get ile listeleme alanında gözükmektedir
+![Ekran görüntüsü 2025-06-07 173437](https://github.com/user-attachments/assets/bf7fa52e-3951-4a23-8d8c-afdfb508aa4d)
+
 
 ## API Uç Noktaları
 
@@ -187,6 +192,8 @@ API ile etkileşim için kullanabileceğiniz örnek JSON şemaları aşağıda v
     "id": 1
   }
 }
+
+
 ```
 
 ### Fiyat Aralığına Göre Ürün Arama (GET /api/products/price-range)
@@ -199,6 +206,3 @@ API ile etkileşim için kullanabileceğiniz örnek JSON şemaları aşağıda v
 /api/products/category/1
 ```
 
-## Lisans
-
-Bu proje MIT Lisansı altında lisanslanmıştır. 
