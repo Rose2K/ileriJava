@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.lang.NonNull;
+import org.springframework.http.HttpHeaders;
 
 @SpringBootApplication
 public class JavaFinalApplication {
@@ -21,8 +22,14 @@ public class JavaFinalApplication {
 			public void addCorsMappings(@NonNull CorsRegistry registry) {
 				registry.addMapping("/**")
 						.allowedOrigins("*")
-						.allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
-						.allowedHeaders("*");
+						.allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
+						.allowedHeaders("*")
+						.exposedHeaders(HttpHeaders.CACHE_CONTROL)
+						.exposedHeaders(HttpHeaders.CONTENT_LENGTH)
+						.exposedHeaders(HttpHeaders.CONTENT_TYPE)
+						.exposedHeaders(HttpHeaders.EXPIRES)
+						.exposedHeaders(HttpHeaders.PRAGMA)
+						.exposedHeaders(HttpHeaders.LOCATION);
 			}
 		};
 	}
