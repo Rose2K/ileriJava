@@ -97,7 +97,13 @@ Envanter Yönetim Sistemi, kullanıcıların ürün ve kategorileri yönetmeleri
 
 4. Uygulamaya erişin:
 
-   - Swagger UI: [http://localhost:8080/swagger-ui.html](https://ilerijava-production.up.railway.app/swagger-ui/index.html#/)
+   https://ilerijava-production.up.railway.app/api/      bu uygulama nın deploy adresidir
+
+   https://ilerijava-production.up.railway.app/api/categories adresi ile kategoriler servis adresi
+
+   https://ilerijava-production.up.railway.app/api/products ürünler servis adresidir
+
+ 
 
 ### Docker ile Çalıştırma
 
@@ -111,34 +117,46 @@ Envanter Yönetim Sistemi, kullanıcıların ürün ve kategorileri yönetmeleri
 Postman ile örnek test görüntüsü categories alanına ekleme yapılmıştır
 ![Ekran görüntüsü 2025-06-07 173441](https://github.com/user-attachments/assets/32b9667c-db8a-4252-960b-cee29fc8bf09)
 
+
+
 Eklediğimiz ürün get ile listeleme alanında gözükmektedir
 ![Ekran görüntüsü 2025-06-07 173437](https://github.com/user-attachments/assets/bf7fa52e-3951-4a23-8d8c-afdfb508aa4d)
+
+
+
+İd'si 1 olan kategorinin  ve açıklama alanını güncelleme işlemi
+![Ekran görüntüsü 2025-06-11 112406](https://github.com/user-attachments/assets/9698dabb-df07-4f1a-9b4a-ab9ea1e6bb59)
+
+Kategoriler kısmında arama yapılmıştır sonuç listelenmiştir
+![Ekran görüntüsü 2025-06-11 212613](https://github.com/user-attachments/assets/f199f7d6-bff0-4035-8f4a-2b4c2a3f85c9)
+
+
+
 
 
 ## API Uç Noktaları
 
 ### Ürünler
 
-- `GET /api/products` - Tüm ürünleri al
-- `GET /api/products/{id}` - ID'ye göre ürün al
-- `POST /api/products` - Yeni bir ürün oluştur
-- `PUT /api/products/{id}` - Bir ürünü güncelle
-- `DELETE /api/products/{id}` - Bir ürünü sil
-- `GET /api/products/category/{categoryId}` - Kategoriye göre ürünleri al
-- `GET /api/products/search?name={name}` - İsme göre ürün ara
-- `GET /api/products/price-range?minPrice={min}&maxPrice={max}` - Fiyat aralığına göre ürünleri al
-- `GET /api/products/low-stock` - Düşük stoktaki ürünleri al
-- `PATCH /api/products/{id}/quantity?quantity={quantity}` - Ürün miktarını güncelle
+- `GET http://ilerijava-production.up.railway.app/api/products` - Tüm ürünleri al
+- `GET http://ilerijava-production.up.railway.app/api/products/id` - ID'ye göre ürün al
+- `POST http://ilerijava-production.up.railway.app/api/products` - Yeni bir ürün oluştur
+- `PUT http://ilerijava-production.up.railway.app/api/products/id` - Bir ürünü güncelle
+- `DELETE http://ilerijava-production.up.railway.app/api/products/id` - Bir ürünü sil
+- `GET http://ilerijava-production.up.railway.app/api/products/category/categoryId` - Kategoriye göre ürünleri al
+- `GET http://ilerijava-production.up.railway.app/api/products/search?name=name` - İsme göre ürün ara
+- `GET http://ilerijava-production.up.railway.app/api/products/price-range?minPrice=min&maxPrice=max` - Fiyat aralığına göre ürünleri al
+- `GET http://ilerijava-production.up.railway.app/api/products/low-stock` - Düşük stoktaki ürünleri al
+- `PATCH http://ilerijava-production.up.railway.app/api/products/id/quantity?quantity=quantity` - Ürün miktarını güncelle
 
 ### Kategoriler
 
-- `GET /api/categories` - Tüm kategorileri al
-- `GET /api/categories/{id}` - ID'ye göre kategori al
-- `GET /api/categories/name/{name}` - İsme göre kategori al
-- `POST /api/categories` - Yeni bir kategori oluştur
-- `PUT /api/categories/{id}` - Bir kategoriyi güncelle
-- `DELETE /api/categories/{id}` - Bir kategoriyi sil
-- `GET /api/categories/search?name={name}` - İsme göre kategori ara
+- `GET http://ilerijava-production.up.railway.app/api/categories` - Tüm kategorileri al
+- `GET http://ilerijava-production.up.railway.app/api/categories/id` - ID'ye göre kategori al
+- `POST http://ilerijava-production.up.railway.app/api/categories` - Yeni bir kategori oluştur
+- `PUT http://ilerijava-production.up.railway.app/api/categories/id` - Bir kategoriyi güncelle
+- `DELETE http://ilerijava-production.up.railway.app/api/categories/id` - Bir kategoriyi sil
+- `GET http://ilerijava-production.up.railway.app/api/categories/search?name=name` - İsme göre kategori ara
 
 ## Dağıtım
 
@@ -160,7 +178,7 @@ API ile etkileşim için kullanabileceğiniz örnek JSON şemaları aşağıda v
 }
 ```
 
-### Kategori Güncelleme (PUT /api/categories/{id})
+### ID'ye göre kategori Güncelleme (PUT /api/categories/{id})
 ```json
 {
   "name": "Bilgisayarlar",
