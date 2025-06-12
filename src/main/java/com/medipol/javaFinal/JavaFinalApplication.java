@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.lang.NonNull;
 import org.springframework.http.HttpHeaders;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 @SpringBootApplication
 public class JavaFinalApplication {
@@ -32,5 +33,17 @@ public class JavaFinalApplication {
 						.exposedHeaders(HttpHeaders.LOCATION);
 			}
 		};
+	}
+	
+	@Bean
+	public CommonsRequestLoggingFilter requestLoggingFilter() {
+		CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();
+		loggingFilter.setIncludeClientInfo(true);
+		loggingFilter.setIncludeQueryString(true);
+		loggingFilter.setIncludePayload(true);
+		loggingFilter.setMaxPayloadLength(10000);
+		loggingFilter.setIncludeHeaders(true);
+		loggingFilter.setAfterMessagePrefix("REQUEST DATA: ");
+		return loggingFilter;
 	}
 }
