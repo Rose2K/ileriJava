@@ -56,4 +56,9 @@ public class CategoryServiceImpl implements CategoryService {
     public boolean existsByName(String name) {
         return categoryRepository.existsByName(name);
     }
+
+    @Override
+    public List<Category> findEnabledCategories() {
+        return categoryRepository.findByEnabledTrue();
+    }
 } 

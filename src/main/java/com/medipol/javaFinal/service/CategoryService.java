@@ -20,4 +20,6 @@ public interface CategoryService {
     List<Category> searchCategoriesByName(String name);
     
     boolean existsByName(String name);
+    
+    List<Category> findEnabledCategories();
 } 

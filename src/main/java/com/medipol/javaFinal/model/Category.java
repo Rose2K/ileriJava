@@ -27,6 +27,8 @@ public class Category {
     private String name;
 
     private String description;
+    
+    private Boolean enabled = true;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("category")
@@ -42,6 +44,9 @@ public class Category {
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
+        if (enabled == null) {
+            enabled = true;
+        }
     }
 
     @PreUpdate
